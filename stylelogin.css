@@ -1,0 +1,121 @@
+/* RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f4f6f9 0%, #d1d8e0 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTAINER */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* HEADER */
+.login-header .icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.login-header h1 {
+    color: #0f9d58; /* Màu xanh lá đặc trưng của thầy */
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.login-header p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* FORM */
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #0f9d58;
+    box-shadow: 0 0 5px rgba(15, 157, 88, 0.2);
+}
+
+/* OPTIONS */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.options a {
+    color: orange; /* Màu cam menu thầy thích */
+    text-decoration: none;
+}
+
+/* BUTTON */
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #0f9d58, #34a853);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(15, 157, 88, 0.3);
+}
+
+.footer-link {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #666;
+}
+
+.footer-link a {
+    color: #0f9d58;
+    text-decoration: none;
+    font-weight: 600;
+}
