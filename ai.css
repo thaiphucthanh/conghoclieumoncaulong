@@ -1,0 +1,44 @@
+body { 
+    font-family: 'Segoe UI', Arial, sans-serif; 
+    margin: 0; background: #f0f2f5; 
+    display: flex; justify-content: center; align-items: center; height: 100vh; 
+  }
+  .chat-wrapper { 
+    width: 100%; max-width: 450px; height: 90vh; 
+    background: white; display: flex; flex-direction: column; 
+    border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: hidden;
+  }
+  .chat-header { 
+    background: #0f9d58; color: white; padding: 15px; 
+    display: flex; align-items: center; gap: 10px; 
+  }
+  .ai-avatar { font-size: 24px; background: rgba(255,255,255,0.2); padding: 8px; border-radius: 50%; }
+  .chat-body { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: #f9f9f9; }
+  
+  /* Tin nhắn */
+  .message { max-width: 85%; padding: 10px 15px; border-radius: 15px; font-size: 14px; line-height: 1.5; }
+  .ai-message { align-self: flex-start; background: #e8f5e9; color: #1b5e20; border-bottom-left-radius: 2px; }
+  .user-message { align-self: flex-end; background: #0f9d58; color: white; border-bottom-right-radius: 2px; }
+
+  /* Vùng nhập liệu */
+  .chat-input-area { 
+    padding: 15px; border-top: 1px solid #eee; 
+    display: flex; align-items: center; gap: 12px; background: white;
+  }
+  .attach-btn { 
+    font-size: 22px; color: #0f9d58; cursor: pointer; display: block !important; 
+  }
+  .attach-btn:hover { color: #f39c12; }
+  
+  #fileNameDisplay { 
+    flex: 1; border: 1px solid #ddd; padding: 10px; border-radius: 20px; outline: none; background: #f1f1f1;
+  }
+  
+  #sendBtn { 
+    background: none; border: none; font-size: 22px; color: #0f9d58; 
+    cursor: pointer; display: block !important; 
+  }
+  #sendBtn:disabled { color: #ccc; cursor: not-allowed; }
+  
+  video { width: 100%; border-radius: 10px; margin-top: 5px; }
+  .loading-text { font-style: italic; font-size: 12px; color: #666; }
