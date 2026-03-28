@@ -6,19 +6,21 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #f4f6f9 0%, #d1d8e0 100%);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  /* Dùng màu xanh rêu nhạt tạo cảm giác thư thái */
+  background-color: #a3b18a; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-/* CONTAINER */
 .login-container {
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 .login-box {
