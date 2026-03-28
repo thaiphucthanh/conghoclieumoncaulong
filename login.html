@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - Cầu lông 10</title>
+    <link rel="stylesheet" href="css/stylelogin.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <div class="icon">🏸</div>
+                <h1>ĐĂNG NHẬP</h1>
+                <p>Cổng học liệu môn Câu Lông</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Tên đăng nhập</label>
+                    <input type="text" id="username" placeholder="Nhập số điện thoại hoặc mã HS" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+
+                <div class="options">
+                    <label><input type="checkbox"> Ghi nhớ</label>
+                    <a href="#">Quên mật khẩu?</a>
+                </div>
+
+                <button type="button" class="btn-login" onclick="check()">VÀO HỌC NGAY</button>
+            </form>
+            <script src="js/codelogin.js"></script>
+            <div class="footer-link">
+                Chưa có tài khoản? <a href="#">Đăng ký tại đây</a>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
