@@ -97,15 +97,20 @@
 </div>
 
 <style>
-  .lesson-container {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    line-height: 1.7;
-    color: #333;
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    background-color: #fff;
-  }
+  * {
+  box-sizing: border-box; /* Giúp padding và border không làm nở độ rộng của khối */
+}
+
+/* Chỉnh lại lesson-container để nó hòa hợp với Sidebar */
+.lesson-container {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  line-height: 1.7;
+  color: #333;
+  width: 100%;       /* Thay max-width bằng width 100% để nó co giãn theo thẻ cha */
+  padding: 20px;
+  background-color: #fff;
+  /* Xóa margin: auto nếu thầy đang dùng Flexbox ở thẻ cha .content */
+}
   .main-header {
     background-color: #00796b;
     color: white;
