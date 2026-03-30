@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tạo bài tập</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f1f5f9;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 650px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px;
+      width: 100%;
+      background: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #4338ca;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>
+    📘 Giao bài tập 🎾 
+    <a href="https://nhatnc80.github.io/portalsport/" 
+       style="text-decoration: none; color:orange;">
+       Cổng học liệu
+    </a>
+  </h2>
+
+  <!-- Lesson -->
+  <label>Bài học</label>
+  <select id="lesson"></select>
+
+  <!-- Title -->
+  <input id="title" placeholder="Tiêu đề bài tập">
+
+  <!-- Description -->
+  <textarea id="desc" placeholder="Mô tả"></textarea>
+
+  <!-- Upload file -->
+  <label>Upload file bài tập</label>
+  <input type="file" id="file">
+
+  <!-- Max score -->
+  <input id="score" type="number" value="10">
+
+  <!-- Ngày kết thúc -->
+  <label>Ngày kết thúc</label>
+  <input id="due" type="datetime-local">
+
+  <button onclick="create()">Tạo bài tập</button>
+</div>
+
+<script>
+const sb = window.supabase.createClient(
+  "https://zpvhxuwwgrtqbgziylbl.supabase.co",
+  "sb_publishable_u0kVgF9XCLTk5tD9M_xj9w_9lKguAgf"
+);
+
+// 🔐 Check login
+if (localStorage.getItem("role") !== "teacher") {
+  alert("Bạn chưa đăng nhập!");
+  window.location.href = "login.html";
+}
+
+// 🚀 Load lessons
+document.addEventListener("DOMContentLoaded", async () => {
+  const select = document.getElementById("lesson");
+
+  const { data, error } = await sb
+    .from("lessons")
+    .select("lesson_id, title");
+
+  if (error) {
+    console.error(error);
+    alert("Không load được lessons");
+    return;
+  }
+
+  select.innerHTML = '<option value="">-- Chọn bài học --</option>';
+
+  data.forEach(l => {
+    const opt = document.createElement("option");
+    opt.value = l.lesson_id;
+    opt.textContent = l.title;
+    select.appendChild(opt);
+  });
+});
+
+// 🚀 CREATE ASSIGNMENT
+async function create() {
+  const lesson_id = document.getElementById("lesson").value;
+  const title = document.getElementById("title").value.trim();
+  const desc = document.getElementById("desc").value.trim();
+  const file = document.getElementById("file").files[0];
+  const score = document.getElementById("score").value;
+  const due = document.getElementById("due").value;
+
+  if (!lesson_id) return alert("Chọn bài học");
+  if (!title) return alert("Nhập tiêu đề");
+  if (!file) return alert("Phải upload file");
+
+  // 🚀 Upload file
+  const fileName = Date.now() + "_" + file.name;
+
+  const { error: uploadError } = await sb
+    .storage
+    .from("submissions")
+    .upload(fileName, file);
+
+  if (uploadError) {
+    console.error(uploadError);
+    return alert("Upload lỗi!");
+  }
+
+  // 🔗 Lấy link file
+  const { data: publicUrlData } = sb
+    .storage
+    .from("submissions")
+    .getPublicUrl(fileName);
+
+  const fileUrl = publicUrlData.publicUrl;
+
+  // 🕒 Ngày bắt đầu = NOW
+  const now = new Date().toISOString();
+
+  // 🕒 Ngày kết thúc
+  const updated_at = due ? new Date(due).toISOString() : null;
+
+  // 🚀 Insert DB
+  const { error } = await sb
+    .from("assignments")
+    .insert([{
+      lesson_id: parseInt(lesson_id),
+      title: title,
+      description: desc || "",
+      github_repo_url: fileUrl,
+      max_score: parseInt(score || 10),
+
+      // 🔥 QUAN TRỌNG
+      due_date: now,        // ngày bắt đầu
+      updated_at: updated_at, // ngày kết thúc
+      created_at: now
+    }]);
+
+  if (error) {
+    console.error("FULL ERROR:", error);
+    alert("Lỗi: " + error.message);
+  } else {
+    alert("🎉 Tạo thành công!");
+
+    // reset form
+    document.getElementById("title").value = "";
+    document.getElementById("desc").value = "";
+    document.getElementById("file").value = "";
+    document.getElementById("score").value = 10;
+    document.getElementById("due").value = "";
+    document.getElementById("lesson").value = "";
+  }
+}
+</script>
+
+</body>
+</html>
