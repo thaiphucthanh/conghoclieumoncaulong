@@ -42,89 +42,136 @@
   </div>
   <div class="hbg"><img src="header_images.jpg" width="970" height="294" alt="" /></div>
   <div class="content">
-    <div class="chat-wrapper">
-    <div class="chat-header">
-      <div class="ai-avatar">🏸</div>
-      <div class="chat-title">
-        <h3>HLV AI CẦU LÔNG</h3>
-        <span class="status-online">Trực tuyến</span>
-      </div>
-    </div>
+    <div class="main-layout-container">
+      
+      <div class="sidebar-left">
+        <div class="gadget">
+          <h2 style="color: orange;"><span>Chức năng</span> chính</h2>
+          <ul class="sb_menu">
+            <li class="active"><a href="#">Trang chủ</a></li>
+            <li><a href="#">Mẫu vợt & cầu</a></li>
+            <li><a href="#">Đồng phục</a></li>
+            <li><a href="#">Kho lưu trữ</a></li>
+          </ul>
+        </div>
+        
+        <div class="gadget">
+          <h2 style="color: orange;"><span>Thể thao tự chọn</span></h2>
+          <ul class="ex_menu">
+            <li class="active">Kỹ thuật di chuyển
+              <a href="b1cd2.html">Di chuyển đơn bước</a>
+              <a href="b2cd2.html">Di chuyển đa bước</a>
+            </li>
+            <li class="active">Kỹ thuật đập cầu
+              <a href="b1cd6.html">Đập cầu thuận tay</a>
+              <a href="b2cd6.html">Di chuyển lùi đập cầu</a>
+              <a href="b3cd6.html">Di chuyển ngang đập cầu</a>
+            </li>
+          </ul>
+        </div>
 
-    <div class="chat-body" id="chatBody">
-      <div class="message ai-message">
-        <div class="message-content">
-          Chào em! Thầy là AI hướng dẫn chuyên môn. Hãy nhấn vào biểu tượng kẹp giấy 📎 để gửi video bài tập, thầy sẽ nhận xét kỹ thuật cho em nhé!
+        <div class="gadget">
+          <h2 class="grey"><span>Chân lý</span></h2>
+          <div class="testi">
+            <p><span class="q"><img src="quote_1.gif" width="16" height="14" alt="" /></span> Đừng để đường cầu của đối thủ định đoạt bước tiến của bạn... <span class="q"><img src="quote_2.gif" width="16" height="14" alt="" /></span></p>
+            <p class="title"><strong>Nhóm tác giả</strong></p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="chat-input-area">
-      <label for="videoFile" class="attach-btn" title="Đính kèm video">
-        <i class="fas fa-paperclip"></i>
-      </label>
-      <input type="file" id="videoFile" accept="video/*" onchange="handleFileSelect()" style="display: none;">
-      
-      <input type="text" id="fileNameDisplay" placeholder="Chọn video bài tập của em..." readonly>
-      
-      <button id="sendBtn" onclick="processUpload()" disabled title="Gửi cho AI">
-        <i class="fas fa-paper-plane"></i>
-      </button>
-    </div>
+      <div class="chatbot-right">
+        <div class="chat-wrapper">
+          <div class="chat-header">
+            <div class="ai-avatar">🏸</div>
+            <div class="chat-title">
+              <h3>HLV AI CẦU LÔNG</h3>
+              <span class="status-online">Trực tuyến</span>
+            </div>
+          </div>
+
+          <div class="chat-body" id="chatBody">
+            <div class="message ai-message">
+              <div class="message-content">
+                Chào em! Thầy là AI hướng dẫn chuyên môn. Hãy gửi video bài tập để thầy nhận xét nhé!
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-input-area">
+            <label for="videoFile" class="attach-btn"><i class="fas fa-paperclip"></i></label>
+            <input type="file" id="videoFile" accept="video/*" style="display: none;">
+            <input type="text" id="fileNameDisplay" placeholder="Chọn video..." readonly>
+            <button id="sendBtn" disabled><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+
+    </div> <div class="clr"></div>
   </div>
-      
-     <script src="js/aicheckdt.js"></script>
-    </div>
 
 <style>
-       .chat-wrapper { 
+  /* Cấu trúc khung chính sử dụng Flexbox */
+  .main-layout-container {
+    display: flex;
+    flex-direction: row; /* Sidebar trái, Chat phải */
+    gap: 30px;
+    padding: 20px 0;
+    align-items: flex-start;
+  }
+
+  /* Định dạng Sidebar bên trái */
+  .sidebar-left {
+    flex: 0 0 280px; /* Độ rộng cố định 280px, không co giãn */
+    order: 1; /* Luôn đứng đầu (bên trái) */
+  }
+
+  /* Định dạng Chatbot bên phải */
+  .chatbot-right {
+    flex: 1; /* Chiếm toàn bộ phần còn lại bên phải */
+    order: 2;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Tối ưu Chat Wrapper */
+  .chat-wrapper { 
     width: 100%; 
-    max-width: 450px; 
-    height: 90vh; 
+    max-width: 500px; /* Thầy có thể tăng lên nếu muốn chat rộng hơn */
+    height: 700px; 
     background: white; 
     display: flex; 
     flex-direction: column; 
     border-radius: 15px; 
     box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
     overflow: hidden;
-
-    margin: 0 auto; /* 👉 THÊM DÒNG NÀY để căn giữa */
-}
-  .chat-header { 
-    background: #0f9d58; color: white; padding: 15px; 
-    display: flex; align-items: center; gap: 10px; 
   }
+
+  /* Responsive: Chuyển sang cột dọc khi xem trên điện thoại */
+  @media (max-width: 800px) {
+    .main-layout-container {
+      flex-direction: column;
+    }
+    .sidebar-left {
+      flex: 1 1 auto;
+      width: 100%;
+      order: 2; /* Trên mobile cho chat lên trước, menu xuống sau cũng được */
+    }
+    .chatbot-right {
+      width: 100%;
+      order: 1;
+    }
+  }
+
+  /* Giữ nguyên các style trang trí của thầy */
+  .chat-header { background: #0f9d58; color: white; padding: 15px; display: flex; align-items: center; gap: 10px; }
   .ai-avatar { font-size: 24px; background: rgba(255,255,255,0.2); padding: 8px; border-radius: 50%; }
   .chat-body { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: #f9f9f9; }
-  
-  /* Tin nhắn */
-  .message { max-width: 85%; padding: 10px 15px; border-radius: 15px; font-size: 14px; line-height: 1.5; }
+  .message { max-width: 85%; padding: 10px 15px; border-radius: 15px; font-size: 14px; }
   .ai-message { align-self: flex-start; background: #e8f5e9; color: #1b5e20; border-bottom-left-radius: 2px; }
-  .user-message { align-self: flex-end; background: #0f9d58; color: white; border-bottom-right-radius: 2px; }
-
-  /* Vùng nhập liệu */
-  .chat-input-area { 
-    padding: 15px; border-top: 1px solid #eee; 
-    display: flex; align-items: center; gap: 12px; background: white;
-  }
-  .attach-btn { 
-    font-size: 22px; color: #0f9d58; cursor: pointer; display: block !important; 
-  }
-  .attach-btn:hover { color: #f39c12; }
-  
-  #fileNameDisplay { 
-    flex: 1; border: 1px solid #ddd; padding: 10px; border-radius: 20px; outline: none; background: #f1f1f1;
-  }
-  
-  #sendBtn { 
-    background: none; border: none; font-size: 22px; color: #0f9d58; 
-    cursor: pointer; display: block !important; 
-  }
-  #sendBtn:disabled { color: #ccc; cursor: not-allowed; }
-  
-  video { width: 100%; border-radius: 10px; margin-top: 5px; }
-  .loading-text { font-style: italic; font-size: 12px; color: #666; }
-     </style>
+  .chat-input-area { padding: 15px; border-top: 1px solid #eee; display: flex; align-items: center; gap: 12px; background: white; }
+  #fileNameDisplay { flex: 1; border: 1px solid #ddd; padding: 10px; border-radius: 20px; outline: none; background: #f1f1f1; }
+  .attach-btn, #sendBtn { font-size: 22px; color: #0f9d58; cursor: pointer; border: none; background: none; }
+</style>
 
 
     <div class="sidebar">
