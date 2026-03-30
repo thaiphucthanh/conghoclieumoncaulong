@@ -9,25 +9,6 @@
 <script type="text/javascript" src="js/cufon-yui.js"></script>
 <script type="text/javascript" src="js/arial.js"></script>
 <script type="text/javascript" src="js/cuf_run.js"></script>
-<style>
-  /* Fix layout để Content và Sidebar nằm song song không bị nhảy */
-  .content { display: flex; gap: 20px; align-items: flex-start; padding: 20px; }
-  .technical-container { flex: 1; min-width: 0; font-family: Arial, sans-serif; color: #2c3e50; }
-  .sidebar { width: 306px; flex-shrink: 0; }
-  
-  /* Style cho phần nội dung bài giảng */
-  .main-title { text-align: center; color: #1a5276; border-bottom: 3px solid #3498db; padding-bottom: 10px; text-transform: uppercase; margin-top: 0; }
-  .section-header { background: #2980b9; color: white; padding: 10px 15px; border-radius: 5px; margin: 25px 0 15px 0; font-size: 1.2em; font-weight: bold; }
-  .step-box { padding: 15px; margin: 15px 0; border-radius: 8px; border: 1px solid #e0e0e0; }
-  .ttcb { background: #e8f6f3; border-left: 5px solid #1abc9c; }
-  .theory-item { margin-bottom: 20px; padding: 15px; background: #fff; border: 1px solid #eee; border-radius: 8px; }
-  .theory-item h4 { color: #c0392b; margin-top: 0; border-bottom: 1px solid #f2f2f2; padding-bottom: 5px; }
-  .theory-img { display: block; margin: 10px auto; max-width: 100%; height: auto; border: 1px solid #ddd; padding: 5px; background: #fff; }
-  .activity-card { border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; margin-bottom: 15px; background: #fff; }
-  .sub-topic { background-color: #f1f8e9; padding: 12px; border-left: 4px solid #689f38; margin: 10px 0; }
-  .warning-box { background: #fef5e7; border: 2px dashed #f39c12; padding: 15px; margin-top: 20px; border-radius: 10px; }
-  .clr { clear: both; }
-</style>
 </head>
 <body>
 <div class="main">
@@ -58,61 +39,99 @@
   </div>
   <div class="hbg"><img src="header_images.jpg" width="970" height="294" alt="" /></div>
   <div class="content">
-    
-    <div class="technical-container">
-      <h2 class="main-title">Bài 1: Kĩ thuật di chuyển đơn bước</h2>
+    <div class="mainbar">
+// nội dung content
+<div class="technical-container">
+    <h2 class="main-title">Bài 1: Kĩ thuật di chuyển đơn bước</h2>
 
-      <div class="step-box ttcb">
+    <div class="step-box ttcb">
         <strong>TTCB:</strong> Hai chân đứng rộng bằng vai, gối khuỵu, tay phải cầm vợt ở phía trước.
-      </div>
-
-      <div class="theory-item">
-        <h4>Kĩ thuật di chuyển Tiến (Phải & Trái)</h4>
-        <p><strong>- Tiến phải:</strong> Từ TTCB, chân phải bước ra trước chếch sang phải một bước thành tư thế đứng chân trước chân sau. Chân phải gối khuỵu, trọng lượng cơ thể dồn nhiều lên chân phải; chân trái duỗi thẳng, chạm sân bằng nửa trước bàn chân (H.a).</p>
-        <p><strong>- Tiến trái:</strong> Từ TTCB, chân phải bước ra trước chếch sang trái một bước thành tư thế đứng chân trước chân sau. Chân phải gối khuỵu, trọng lượng cơ thể dồn nhiều lên chân phải; chân trái duỗi thẳng, chạm sân bằng nửa trước bàn chân (H.b).</p>
-        <img src="h2.png" alt="Kĩ thuật di chuyển đơn bước tiến phải và tiến trái" class="theory-img" />
-      </div>
-
-      <div class="theory-item">
-        <h4>Kĩ thuật di chuyển Sang ngang (Phải & Trái)</h4>
-        <p><strong>- Sang phải:</strong> Từ TTCB, chân phải bước sang ngang một bước và xoay người sang phải thành tư thế đứng chân trước chân sau. Chân phải gối khuỵu, trọng lượng cơ thể dồn nhiều lên chân phải; chân trái duỗi thẳng, chạm sân bằng nửa trước bàn chân (H.a).</p>
-        <p><strong>- Sang trái:</strong> Từ TTCB, chân phải bước sang trái một bước theo đường vòng cung qua phía trước chân trái, đồng thời xoay người sang trái thành tư thế đứng chân trước chân sau. Chân phải gối khuỵu, trọng lượng cơ thể dồn nhiều lên chân phải; chân trái duỗi thẳng, chạm sân bằng nửa trước bàn chân (H.b).</p>
-        <img src="h3.png" alt="Kĩ thuật di chuyển đơn bước sang phải và sang trái" class="theory-img" />
-      </div>
-
-      <div class="theory-item">
-        <h4>Kĩ thuật di chuyển Lùi (Phải & Trái)</h4>
-        <p><strong>- Lùi phải:</strong> Từ TTCB, chân phải bước lùi về sau một bước thành tư thế đứng chân trước chân sau. Chân phải gối khuỵu, trọng lượng cơ thể dồn nhiều lên chân phải; chân trái duỗi thẳng, chạm sân bằng nửa trước bàn chân (H.a).</p>
-        <p><strong>- Lùi trái:</strong> Từ TTCB, chân trái bước lùi về sau một bước thành tư thế đứng chân trước chân sau. Chân trái gối khuỵu, trọng lượng cơ thể dồn nhiều lên chân trái; chân phải duỗi thẳng, chạm sân bằng nửa trước bàn chân (H.b).</p>
-        <img src="h4.png" alt="Kĩ thuật di chuyển đơn bước lùi phải và lùi trái" class="theory-img" />
-      </div>
-      
-      <p><strong>Kết thúc:</strong> Về TTCB.</p>
-
-      <div class="section-header">A. Trò chơi vận động</div>
-      <div class="activity-card">
-        <h3 style="color: #c62828; margin-top: 0;">Trò chơi: Di chuyển ngang đổi cầu</h3>
-        <p><strong>Mục đích:</strong> Rèn luyện phản xạ và phát triển sức nhanh.</p>
-        <p><strong>Chuẩn bị:</strong> Các đội đứng thành hàng dọc sau vạch xuất phát.</p>
-        <div class="sub-topic">
-          <strong>Thực hiện:</strong> Khi có hiệu lệnh, lần lượt từng bạn di chuyển lên điểm A nhặt cầu -> di chuyển ngang đổi cầu ở điểm A và B -> chạy về cuối hàng.
-        </div>
-      </div>
-
-      <div class="section-header">B. Bài tập bổ trợ</div>
-      <div class="activity-card">
-        <div class="sub-topic"><strong>1. Bài tập bước đơn không cầu:</strong> Bước tiến/lùi/ngang (8–10 lần mỗi hướng) rồi trở về vị trí cũ.</div>
-        <div class="sub-topic"><strong>2. Bài tập phản xạ tín hiệu:</strong> Di chuyển nhanh theo khẩu lệnh của GV (Tiến – Lùi – Trái – Phải).</div>
-        <div class="sub-topic"><strong>3. Kết hợp tay – chân:</strong> Thực hiện đơn bước kết hợp vung tay mô phỏng động tác đánh cầu.</div>
-      </div>
-
-      <div class="warning-box">
-        <strong>* Chú ý:</strong><br />
-        - Lỗi sai thường gặp: Bước di chuyển ngắn.<br />
-        - Cách sửa: Đặt vị trí đánh dấu sẵn để di chuyển.
-      </div>
     </div>
 
+    <div class="theory-section">
+        <div class="theory-item">
+            <h4>1. Kĩ thuật di chuyển Tiến (Phải & Trái)</h4>
+            <p><strong>- Tiến phải:</strong> Từ TTCB, chân phải bước ra trước chếch sang phải một bước thành tư thế đứng chân trước chân sau. Chân phải gối khuỵu, trọng lượng cơ thể dồn nhiều lên chân phải; chân trái duỗi thẳng, chạm sân bằng nửa trước bàn chân (H.a).</p>
+            <p><strong>- Tiến trái:</strong> Từ TTCB, chân phải bước ra trước chếch sang trái một bước thành tư thế đứng chân trước chân sau. Chân phải gối khuỵu, trọng lượng cơ thể dồn nhiều lên chân phải; chân trái duỗi thẳng, chạm sân bằng nửa trước bàn chân (H.b).</p>
+            <p class="img-caption"><em>Hình. Kĩ thuật di chuyển đơn bước tiến phải và tiến trái</em></p>
+            <img src="h2.png" alt="Di chuyển tiến" class="theory-img">
+        </div>
+
+        <div class="theory-item">
+            <h4>2. Kĩ thuật di chuyển Sang ngang (Phải & Trái)</h4>
+            <p><strong>- Sang phải:</strong> Từ TTCB, chân phải bước sang ngang một bước và xoay người sang phải thành tư thế đứng chân trước chân sau. Chân phải gối khuỵu, trọng lượng cơ thể dồn nhiều lên chân phải; chân trái duỗi thẳng, chạm sân bằng nửa trước bàn chân (H.a).</p>
+            <p><strong>- Sang trái:</strong> Từ TTCB, chân phải bước sang trái một bước theo đường vòng cung qua phía trước chân trái, đồng thời xoay người sang trái thành tư thế đứng chân trước chân sau. Chân phải gối khuỵu, trọng lượng cơ thể dồn nhiều lên chân phải; chân trái duỗi thẳng, chạm sân bằng nửa trước bàn chân (H.b).</p>
+            <p class="img-caption"><em>Hình. Kĩ thuật di chuyển đơn bước sang phải và sang trái</em></p>
+            <img src="h3.png" alt="Di chuyển ngang" class="theory-img">
+        </div>
+
+        <div class="theory-item">
+            <h4>3. Kĩ thuật di chuyển Lùi (Phải & Trái)</h4>
+            <p><strong>- Lùi phải:</strong> Từ TTCB, chân phải bước lùi về sau một bước thành tư thế đứng chân trước chân sau. Chân phải gối khuỵu, trọng lượng cơ thể dồn nhiều lên chân phải; chân trái duỗi thẳng, chạm sân bằng nửa trước bàn chân (H.a).</p>
+            <p><strong>- Lùi trái:</strong> Từ TTCB, chân trái bước lùi về sau một bước thành tư thế đứng chân trước chân sau. Chân trái gối khuỵu, trọng lượng cơ thể dồn nhiều lên chân trái; chân phải duỗi thẳng, chạm sân bằng nửa trước bàn chân (H.b).</p>
+            <p class="img-caption"><em>Hình. Kĩ thuật di chuyển đơn bước lùi phải và lùi trái</em></p>
+            <img src="h4.png" alt="Di chuyển lùi" class="theory-img">
+        </div>
+    </div>
+
+    <div class="step-box finish" style="background: #f4f6f7; border-left: 5px solid #7f8c8d; margin-bottom: 20px;">
+        <strong>Kết thúc:</strong> Về TTCB.
+    </div>
+
+    <div class="warning-box">
+        <strong>* Chú ý:</strong>
+        <ul>
+            <li><strong>Lỗi sai thường gặp:</strong> Bước di chuyển ngắn.</li>
+            <li><strong>Cách sửa:</strong> Đặt vị trí đánh dấu sẵn để di chuyển.</li>
+        </ul>
+    </div>
+
+    <div class="section-header">A. Trò chơi vận động</div>
+    <div class="activity-card">
+        <h3 class="game-title">Trò chơi: Di chuyển ngang đổi cầu</h3>
+        <p><strong>Mục đích:</strong> Rèn luyện khả năng phản xạ và phát triển sức nhanh.</p>
+        <p><strong>Chuẩn bị:</strong> Các bạn tham gia trò chơi được chia thành nhiều đội có số người bằng nhau, mỗi đội đứng thành một hàng dọc sau vạch xuất phát.</p>
+        <div class="sub-topic">
+            <strong>Thực hiện:</strong> Khi có hiệu lệnh, lần lượt từng bạn của mỗi đội di chuyển lên điểm A nhặt cầu và di chuyển ngang để đổi cầu ở hai điểm A và B cho nhau, sau đó chạy về cuối hàng. Bạn tiếp theo chỉ được xuất phát khi bạn phía trước đã vượt qua vạch xuất phát. Đội hoàn thành đầu tiên là đội thắng cuộc.
+        </div>
+    </div>
+
+    <div class="section-header">B. Bài tập bổ trợ</div>
+    <div class="activity-card">
+        <div class="sub-topic">
+            <strong>1. Bài tập bước đơn không cầu:</strong>
+            <ul class="check-list">
+                <li>Bước tiến 1 bước &rarr; trở về vị trí cũ</li>
+                <li>Bước lùi 1 bước &rarr; trở về</li>
+                <li>Bước ngang trái/phải</li>
+                <li><em>Định lượng: Mỗi hướng 8–10 lần</em></li>
+            </ul>
+        </div>
+
+        <div class="sub-topic">
+            <strong>2. Bài tập phản xạ tín hiệu:</strong>
+            <p>GV hô: <em>tiến – lùi – trái – phải</em>. HS di chuyển nhanh đúng hướng bằng 1 bước.</p>
+        </div>
+
+        <div class="sub-topic">
+            <strong>3. Bài tập kết hợp tay – chân:</strong>
+            <p>Di chuyển đơn bước + vung tay mô phỏng đánh cầu thực tế.</p>
+        </div>
+    </div>
+</div>
+<style>
+/* CSS bổ sung để đảm bảo hiển thị đẹp mắt */
+.theory-item { margin-bottom: 25px; border-bottom: 1px dashed #eee; padding-bottom: 15px; }
+.theory-item h4 { color: #2980b9; margin-top: 0; }
+.theory-img { display: block; margin: 10px auto; max-width: 250px; border: 1px solid #ddd; padding: 5px; background: #fff; }
+.img-caption { text-align: center; font-size: 0.9em; color: #666; margin-top: 5px; }
+.check-list { list-style: none; padding-left: 0; }
+.check-list li:before { content: "✔ "; color: #27ae60; font-weight: bold; }
+</style>
+
+      // kết thúc nội dung content
+      <div class="pagenavi"><span class="pages">Page 1 of 2</span><span class="current">1</span><a href="#">2</a><a href="#" >&raquo;</a></div>
+    </div>
     <div class="sidebar">
       <div class="gadget">
         <h2 style="color: orange;"><span>Chức năng</span> chính</h2>
@@ -128,7 +147,7 @@
         <h2 style="color: orange;"><span>Kiến thức chung</span></h2>
         <div class="clr"></div>
         <ul class="ex_menu">
-          <li class="active">Sử dụng các yếu tố tự nhiên, dinh dưỡng<a href="#">Rèn luyện sức khỏe và phát triển thể chất</a><a href="#">Lời khuyên từ chuyên gia</a></li>   
+          <li class="active">Sử dụng các yếu tố tự nhiên, dinh dưỡng<a href="cd1.html">Rèn luyện sức khỏe và phát triển thể chất</a><a href="aicheckdt.html">Lời khuyên từ chuyên gia</a></li>   
         </ul>
       </div>
       <div class="gadget">
@@ -154,18 +173,18 @@
     </div>
     <div class="clr"></div>
   </div>
-  
+  <div class="clr"></div>
   <div class="fbg">
     <div class="col c1">
       <h2><span>Image Gallery</span></h2>
       <a href="#"><img src="pic_1.jpg" width="58" height="58" alt="" /></a> <a href="#"><img src="pic_2.jpg" width="58" height="58" alt="" /></a> <a href="#"><img src="pic_3.jpg" width="58" height="58" alt="" /></a> <a href="#"><img src="pic_4.jpg" width="58" height="58" alt="" /></a> <a href="#"><img src="pic_5.jpg" width="58" height="58" alt="" /></a> <a href="#"><img src="pic_6.jpg" width="58" height="58" alt="" /></a> </div>
     <div class="col c2">
       <h2><span>Hành trình làm chủ sân cầu và nâng tầm thể chất</span></h2>
-      <p>Chào mừng các bạn đến với không gian tự học cầu lông trực tuyến dành riêng cho học sinh lớp 10...</p>
+      <p>Chào mừng các bạn đến với không gian tự học cầu lông trực tuyến dành riêng cho học sinh lớp 10. Đây không chỉ là nơi cung cấp kiến thức về kỹ thuật, mà còn là lộ trình giúp bạn rèn luyện sự bền bỉ, phản xạ nhanh nhẹn và tư duy chiến thuật sắc bén. Tại đây, mọi bài giảng từ cơ bản như cách cầm vợt, di chuyển bước chân đến những kỹ thuật nâng cao đều được trình bày trực quan, giúp bạn dễ dàng thực hành và hoàn thiện kỹ năng mỗi ngày. Hãy cùng chúng tôi khơi dậy đam mê thể thao và xây dựng một lối sống năng động, khỏe mạnh ngay hôm nay.</p>
     </div>
     <div class="col c3">
       <h2><span>About</span></h2>
-      <p>Chào mừng bạn đến với hệ thống tài nguyên số chuyên biệt cho môn Cầu lông...</p>
+      <p>Chào mừng bạn đến với hệ thống tài nguyên số chuyên biệt cho môn Cầu lông thuộc chương trình Giáo dục phổ thông lớp 10. Tại đây, chúng tôi cung cấp hệ thống bài giảng lý thuyết, video hướng dẫn kỹ thuật chuẩn xác và các phương pháp tập luyện bài bản. Mục tiêu của cổng học liệu là hỗ trợ học sinh nắm vững kỹ năng từ cơ bản đến nâng cao, đồng thời giúp giáo viên tối ưu hóa quy trình giảng dạy thông qua các tư liệu trực quan sinh động. <a href="#">Learn more...</a></p>
     </div>
     <div class="clr"></div>
   </div>
