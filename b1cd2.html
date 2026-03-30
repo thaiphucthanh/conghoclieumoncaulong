@@ -77,6 +77,61 @@
         <img src="h4.png">
       </ul>
     </div>
+    <h2 class="main-title">Bài 1: Kĩ thuật di chuyển đơn bước</h2>
+
+      <div class="section-header">A. Trò chơi vận động</div>
+      <div class="activity-card">
+        <h3 class="game-title">Trò chơi: Di chuyển ngang đổi cầu</h3>
+        <p><strong>Mục đích:</strong> Rèn luyện phản xạ và phát triển sức nhanh.</p>
+        <p><strong>Chuẩn bị:</strong> Các đội đứng thành hàng dọc sau vạch xuất phát.</p>
+        <div class="sub-topic">
+          <strong>Thực hiện:</strong> Khi có hiệu lệnh, lần lượt từng bạn di chuyển lên điểm A nhặt cầu -> di chuyển ngang đổi cầu ở điểm A và B -> chạy về cuối hàng.
+        </div>
+      </div>
+
+      <div class="step-box ttcb">
+        <h3>🏃‍♂️ Tư thế chuẩn bị (TTCB)</h3>
+        <p>Hai chân đứng rộng bằng vai, gối khuỵu, trọng lượng dồn đều, tay phải cầm vợt ở phía trước, mắt quan sát cầu.</p>
+      </div>
+
+      <div class="execution-grid">
+        <div class="move-card">
+          <strong>1. Di chuyển TIẾN:</strong> 
+          <p>Bước chân phải ra trước chếch phải/trái. Gối khuỵu, trọng tâm dồn chân trước.</p>
+        </div>
+        <div class="move-card">
+          <strong>2. Di chuyển NGANG:</strong>
+          <p>Bước chân phải sang ngang hoặc vòng qua trước chân trái. Xoay người, trọng tâm dồn chân phải.</p>
+        </div>
+      </div>
+
+      <div class="section-header">B. Bài tập bổ trợ</div>
+      <div class="activity-card">
+        <div class="sub-topic">
+          <strong>1. Bài tập bước đơn không cầu:</strong>
+          <ul class="check-list">
+            <li>Bước tiến 1 bước → Trở về</li>
+            <li>Bước lùi 1 bước → Trở về</li>
+            <li>Bước ngang trái/phải (8–10 lần mỗi hướng)</li>
+          </ul>
+        </div>
+
+        <div class="sub-topic">
+          <strong>2. Bài tập phản xạ tín hiệu:</strong>
+          <p>Di chuyển nhanh theo khẩu lệnh của GV: <em>Tiến – Lùi – Trái – Phải</em>.</p>
+        </div>
+
+        <div class="sub-topic">
+          <strong>3. Kết hợp tay – chân:</strong>
+          <p>Thực hiện đơn bước kết hợp vung tay mô phỏng động tác đánh cầu thực tế.</p>
+        </div>
+      </div>
+
+      <div class="warning-box">
+        <strong>⚠️ Lỗi sai:</strong> Bước di chuyển quá ngắn.<br>
+        <strong>🎯 Cách sửa:</strong> Sử dụng vạch kẻ hoặc nấm chiến thuật để tập bước đúng độ dài.
+      </div>
+    </div>
   </div>
 
   <div class="step-box finish">
@@ -99,6 +154,80 @@
 </div>
 
 <style>
+  .main { width: 970px; margin: 0 auto; background: #fff; }
+  
+  /* Sử dụng Flexbox để chia cột */
+  .content { 
+    display: flex; 
+    gap: 20px; 
+    padding: 20px 0;
+    align-items: flex-start;
+  }
+
+  /* Nội dung chính bên trái */
+  .technical-container {
+    flex: 1; /* Tự động chiếm phần lớn không gian */
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+    background: #fff;
+    padding-right: 10px;
+  }
+
+  /* Sidebar cố định bên phải */
+  .sidebar {
+    flex: 0 0 280px; /* Cố định độ rộng 280px không cho nhảy dòng */
+  }
+
+  /* STYLE NỘI DUNG BÀI GIẢNG */
+  .main-title {
+    text-align: center; color: #1a5276;
+    border-bottom: 3px solid #3498db; padding-bottom: 10px;
+    text-transform: uppercase; margin-top: 0;
+  }
+  
+  .section-header {
+    background: #2980b9; color: white;
+    padding: 10px 15px; border-radius: 5px;
+    margin: 25px 0 15px 0; font-size: 1.2em;
+  }
+
+  .activity-card {
+    border: 1px solid #e0e0e0; border-radius: 8px;
+    padding: 15px; margin-bottom: 15px;
+    background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+
+  .game-title { color: #c62828; border-bottom: 2px solid #ffcdd2; padding-bottom: 5px; margin-top: 0; }
+  
+  .sub-topic {
+    background-color: #f1f8e9; padding: 12px;
+    border-left: 4px solid #689f38; margin: 10px 0;
+  }
+
+  .step-box { padding: 15px; margin: 15px 0; border-radius: 8px; }
+  .ttcb { background: #e8f6f3; border-left: 5px solid #1abc9c; }
+  
+  .execution-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;
+  }
+  
+  .move-card {
+    background: #fdfefe; border: 1px solid #d6dbdf;
+    border-radius: 8px; padding: 12px;
+  }
+
+  .warning-box {
+    background: #fef5e7; border: 2px dashed #f39c12;
+    padding: 15px; margin-top: 20px; border-radius: 10px;
+  }
+
+  ul.check-list { list-style-type: none; padding-left: 0; }
+  ul.check-list li:before { content: "✔ "; color: #27ae60; font-weight: bold; }
+  
+  strong { color: #c0392b; }
+  .clr { clear: both; }
+</style>
   .technical-container {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
