@@ -4,7 +4,8 @@
 <title>Badminton | Cổng học liệu (Trang chủ)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="style.css" rel="stylesheet" type="text/css" />
+<link href="aicheckdt.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/cufon-yui.js"></script>
@@ -44,29 +45,40 @@
 
   <div class="hbg"><img src="images/header_images.jpg" width="970" height="294" alt="Banner" /></div>
 
-  <div class="content">
+   <div class="content">
     <div class="mainbar">
-      <div class="article">
-        <h2><span>Hãy luyện tập hàng ngày</span></h2>
-        <div class="clr"></div>
-        <p class="post-data"><a href="#" class="com fr">Comments (3)</a> <span class="date">March 15, 2026</span> &nbsp;|&nbsp; Posted by <a href="#">TD&IT</a> &nbsp;|&nbsp; Lĩnh vực <a href="#">Cầu lông</a></p>
-        <img src="images/images_1.jpg" width="613" height="193" alt="Bài viết 1" />
-        <p>© 2026 Cổng học liệu Cầu lông Lớp 10. Tài nguyên học tập mở hỗ trợ cộng đồng giáo dục thể chất. Vui lòng ghi rõ nguồn khi phát hành lại tài liệu.</p>
-        <p class="spec"> <a href="#" class="rm fl">Read more</a></p>
-        <div class="clr"></div>
+      <div class="chat-wrapper">
+    <div class="chat-header">
+      <div class="ai-avatar">🏸</div>
+      <div class="chat-title">
+        <h3>HLV AI CẦU LÔNG</h3>
+        <span class="status-online">Trực tuyến</span>
       </div>
+    </div>
 
-      <div class="article">
-        <h2><span>Tỏa sáng</span> trên sân cầu</h2>
-        <div class="clr."></div>
-        <p class="post-data"><a href="#" class="com fr">Comments (7)</a> <span class="date">March 15, 2026</span> &nbsp;|&nbsp; Posted by <a href="#">TD&IT</a></p>
-        <img src="images/images_2.jpg" width="613" height="193" alt="Bài viết 2" />
-        <p>Hệ thống bài giảng lý thuyết, video hướng dẫn kỹ thuật chuẩn xác dành cho chương trình lớp 10.</p>
-        <p class="spec"><a href="#" class="rm fl">Read more</a></p>
-        <div class="clr"></div>
+    <div class="chat-body" id="chatBody">
+      <div class="message ai-message">
+        <div class="message-content">
+          Chào em! Thầy là AI hướng dẫn chuyên môn. Hãy nhấn vào biểu tượng kẹp giấy 📎 để gửi video bài tập, thầy sẽ nhận xét kỹ thuật cho em nhé!
+        </div>
       </div>
+    </div>
+
+    <div class="chat-input-area">
+      <label for="videoFile" class="attach-btn" title="Đính kèm video">
+        <i class="fas fa-paperclip"></i>
+      </label>
+      <input type="file" id="videoFile" accept="video/*" onchange="handleFileSelect()" style="display: none;">
       
-      <div class="pagenavi"><span class="pages">Page 1 of 2</span><span class="current">1</span><a href="#">2</a><a href="#" >&raquo;</a></div>
+      <input type="text" id="fileNameDisplay" placeholder="Chọn video bài tập của em..." readonly>
+      
+      <button id="sendBtn" onclick="processUpload()" disabled title="Gửi cho AI">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+      
+     <script src="js/aicheckdt.js"></script>
     </div>
 
      <div class="sidebar">
@@ -84,10 +96,7 @@
         <h2 style="color: orange;"><span>Kiến thức chung</span></h2>
         <div class="clr"></div>
         <ul class="ex_menu">
-          <li class="active">Sử dụng các yếu tố tự nhiên, dinh dưỡng
-            <a href="cd1.html">Rèn luyện sức khỏe và phát triển thể chất</a>
-            <a href="aicheckdt.html">Lời khuyên từ chuyên gia</a>
-          </li>   
+          <li class="active">Sử dụng các yếu tố tự nhiên, dinh dưỡng<a href="#">Rèn luyện sức khỏe và phát triển thể chất</a><a href="#">Lời khuyên từ chuyên gia</a></li>   
         </ul>
       </div>
       <div class="gadget">

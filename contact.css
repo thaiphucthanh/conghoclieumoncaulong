@@ -1,0 +1,368 @@
+@charset "utf-8";
+
+/* 1. RESET & CẤU HÌNH CHUNG */
+* {
+    box-sizing: border-box; /* Giúp tính toán kích thước chuẩn xác hơn */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    color: #555;
+    font: normal 15px/1.6em Arial, Helvetica, sans-serif; /* Tăng size chữ cho dễ đọc */
+    background: #f4f7f6;
+}
+
+/* Container chính - Chuyển từ 970px sang full màn hình có giới hạn */
+.main {
+    padding: 0;
+    margin: 0 auto;
+    width: 100%; /* Full màn hình */
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+/* 2. HEADER & SEARCH */
+.search {
+    padding: 10px 20px;
+    background: #ffffff;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px solid #ffffff;
+}
+
+.search span {
+    display: flex;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 0 10px;
+}
+
+.search input#s {
+    border: none;
+    padding: 8px;
+    outline: none;
+    width: 180px;
+}
+
+.header {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Tự xuống hàng trên mobile */
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.logo h1 a { text-decoration: none; color: #333; }
+.logo h1 span { color: #0f9d58; font-weight: bold; }
+.logo h1 small { display: block; font-size: 12px; color: #888; letter-spacing: 1px; }
+
+/* MENU NAV - Chuyển sang Flexbox */
+.menu_nav {
+    background: #0f2184;
+    width: 100%;
+}
+
+.menu_nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.menu_nav ul li a {
+    display: block;
+    padding: 15px 25px;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.menu_nav ul li.active a, .menu_nav ul li a:hover {
+    background: #34a853;
+}
+
+/* 3. HÌNH ẢNH BANNER (HBG) */
+.hbg {
+    width: 100%;
+    text-align: center;
+}
+
+.hbg img {
+    width: 100%; /* Ảnh luôn rộng bằng màn hình */
+    height: auto; /* Giữ đúng tỷ lệ ảnh */
+    display: block;
+}
+
+/* 4. NỘI DUNG CHÍNH (CONTENT) - Chia cột co dãn */
+.content {
+    display: flex;
+    flex-wrap: wrap; /* Quan trọng để sidebar xuống dưới trên mobile */
+    padding: 20px;
+}
+
+.mainbar {
+    flex: 3; /* Chiếm 3 phần */
+    min-width: 300px;
+    padding-right: 20px;
+}
+
+.sidebar {
+    flex: 1; /* Chiếm 1 phần */
+    min-width: 280px;
+    background: #fdfdfd;
+    border-left: 1px solid #eee;
+}
+
+.mainbar img {
+    max-width: 100%; /* Ảnh không bao giờ tràn khung */
+    height: auto;
+    border-radius: 8px;
+}
+
+.article {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+/* 5. SIDEBAR & MENU CON */
+.gadget {
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+ul.sb_menu, ul.ex_menu {
+    list-style: none;
+    padding: 0;
+}
+
+ul.sb_menu li a, ul.ex_menu li a {
+    display: block;
+    padding: 10px;
+    color: #444;
+    text-decoration: none;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+ul.sb_menu li a:hover {
+    background: #f0f9f4;
+    color: #0f9d58;
+}
+
+/* 6. FOOTER BLOCK (FBG) */
+.fbg {
+    display: flex;
+    flex-wrap: wrap;
+    background: #222;
+    color: #ccc;
+    padding: 40px 20px;
+    gap: 20px;
+}
+
+.fbg .col {
+    flex: 1;
+    min-width: 250px;
+}
+
+.fbg h2 { color: #fff; }
+
+/* 7. FOOTER CUỐI TRANG */
+.footer {
+    background: #111;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* 8. MEDIA QUERIES - ĐÂY LÀ PHẦN LÀM CHO ĐIỆN THOẠI ĐẸP */
+@media screen and (max-width: 768px) {
+    .header {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .mainbar {
+        padding-right: 0;
+        flex: none;
+        width: 100%;
+    }
+    
+    .sidebar {
+        flex: none;
+        width: 100%;
+        border-left: none;
+        border-top: 2px solid #eee;
+        margin-top: 20px;
+    }
+
+    .menu_nav ul {
+        justify-content: center;
+    }
+
+    .menu_nav ul li {
+        width: 50%; /* Chia menu làm 2 cột trên điện thoại */
+        text-align: center;
+    }
+    
+    .fbg .col {
+        width: 100%;
+    }
+}
+/* 7. FORM LIÊN HỆ (CONTACT) */
+.mainbar .article {
+    background: #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 12px;      /* Bo góc mềm mại */
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02); /* Đổ bóng nhẹ cho sang */
+    max-width: 700px;         /* Thu hẹp độ rộng ô nội dung */
+    margin-left: auto;        /* Căn giữa ô nếu cần */
+    margin-right: auto;
+}
+
+/* Tinh chỉnh tiêu đề trong ô Article */
+.mainbar .article h2 {
+    font-size: 22px;
+    color: #0f2184;
+    border-left: 4px solid #0f9d58;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+/* 3. LÀM GỌN FORM & THU NHỎ NÚT SUBMIT */
+#sendemail ol {
+    list-style: none;
+    padding: 0;
+}
+
+#sendemail li {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+#sendemail label {
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #444;
+}
+
+#sendemail input.text, 
+#sendemail textarea {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 14px;
+    background: #fafafa;
+    width: 100%;
+}
+
+/* THU NHỎ NÚT SUBMIT (CỰC KỲ QUAN TRỌNG) */
+#sendemail .send {
+    width: 110px;       /* Chiều rộng nhỏ gọn */
+    height: auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin-top: 10px;
+}
+
+#sendemail .send:hover {
+    transform: scale(1.05); /* Hiệu ứng phóng nhẹ khi di chuột */
+    filter: brightness(1.1);
+}
+
+/* 4. ĐIỀU CHỈNH TRÊN MOBILE */
+@media screen and (max-width: 768px) {
+    .mainbar .article {
+        max-width: 100%; /* Trên mobile thì bung hết lề cho dễ đọc */
+        padding: 15px;
+    }
+    
+    #sendemail .send {
+        width: 100px;   /* Nhỏ hơn nữa trên điện thoại */
+    }
+}
+
+/* 8. FOOTER BLOCK (FBG) & FOOTER */
+.fbg {
+    display: flex;
+    flex-wrap: wrap;
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 40px 30px;
+    gap: 30px;
+}
+
+.fbg .col { flex: 1; min-width: 250px; }
+.fbg h2 { color: #34a853; font-size: 20px; }
+
+.footer {
+    background: #1a252f;
+    color: #bdc3c7;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #34495e;
+}
+
+/* 9. RESPONSIVE (DÀNH CHO ĐIỆN THOẠI) */
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Logo trên, Tài khoản dưới */
+        gap: 15px;
+        text-align: center;
+    }
+
+    .content {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .menu_nav ul {
+        flex-wrap: wrap;
+    }
+
+    .menu_nav ul li {
+        width: 50%; /* Menu chia đôi */
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+}
+.top_bar {
+    display: flex;
+    justify-content: space-between; /* Đẩy 2 đầu */
+    align-items: center;            /* Căn giữa theo chiều dọc */
+    padding: 20px 30px;             /* Khoảng cách đệm */
+    background: #fff;
+    width: 100%;                    /* Đảm bảo chiếm hết chiều ngang */
+}
+
+/* Khống chế phần logo bên trái */
+.logo {
+    flex: 1; 
+    display: flex;
+    align-items: center;
+}
+
+/* Đẩy ô search sát lề phải */
+.search {
+    flex: 0 0 auto; /* Không cho ô search co dãn */
+    margin-left: auto; /* Lệnh "thần thánh" để đẩy sát sang phải */
+}
