@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,6 +9,25 @@
 <script type="text/javascript" src="js/cufon-yui.js"></script>
 <script type="text/javascript" src="js/arial.js"></script>
 <script type="text/javascript" src="js/cuf_run.js"></script>
+<style>
+  /* Fix layout để Content và Sidebar nằm song song không bị nhảy */
+  .content { display: flex; gap: 20px; align-items: flex-start; padding: 20px; }
+  .technical-container { flex: 1; min-width: 0; font-family: Arial, sans-serif; color: #2c3e50; }
+  .sidebar { width: 306px; flex-shrink: 0; }
+  
+  /* Style cho phần nội dung bài giảng */
+  .main-title { text-align: center; color: #1a5276; border-bottom: 3px solid #3498db; padding-bottom: 10px; text-transform: uppercase; margin-top: 0; }
+  .section-header { background: #2980b9; color: white; padding: 10px 15px; border-radius: 5px; margin: 25px 0 15px 0; font-size: 1.2em; font-weight: bold; }
+  .step-box { padding: 15px; margin: 15px 0; border-radius: 8px; border: 1px solid #e0e0e0; }
+  .ttcb { background: #e8f6f3; border-left: 5px solid #1abc9c; }
+  .theory-item { margin-bottom: 20px; padding: 15px; background: #fff; border: 1px solid #eee; border-radius: 8px; }
+  .theory-item h4 { color: #c0392b; margin-top: 0; border-bottom: 1px solid #f2f2f2; padding-bottom: 5px; }
+  .theory-img { display: block; margin: 10px auto; max-width: 100%; height: auto; border: 1px solid #ddd; padding: 5px; background: #fff; }
+  .activity-card { border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; margin-bottom: 15px; background: #fff; }
+  .sub-topic { background-color: #f1f8e9; padding: 12px; border-left: 4px solid #689f38; margin: 10px 0; }
+  .warning-box { background: #fef5e7; border: 2px dashed #f39c12; padding: 15px; margin-top: 20px; border-radius: 10px; }
+  .clr { clear: both; }
+</style>
 </head>
 <body>
 <div class="main">
@@ -40,48 +58,40 @@
   </div>
   <div class="hbg"><img src="header_images.jpg" width="970" height="294" alt="" /></div>
   <div class="content">
-    <div class="technical-container">
-  <h2 class="main-title">Bài 1: Kĩ thuật di chuyển đơn bước</h2>
-
-  <div class="step-box ttcb">
-    <h3><i class="icon">🏃‍♂️</i> Tư thế chuẩn bị (TTCB)</h3>
-    <p>Hai chân đứng rộng bằng vai, gối khuỵu, tay phải cầm vợt ở phía trước.</p>
-    <img src="h1.png">
-  </div>
-
-  <div class="execution-grid">
     
-    <div class="move-card">
-      <h4>1. Di chuyển TIẾN (Phải & Trái)</h4>
-      <ul>
-        <li><strong>Tiến phải:</strong> Chân phải bước ra trước chếch phải. Gối phải khuỵu, trọng tâm dồn chân phải. Chân trái duỗi thẳng, chạm sân bằng nửa trước bàn chân.</li>
-        <li><strong>Tiến trái:</strong> Chân phải bước ra trước chếch trái. Chân phải khuỵu, trọng tâm dồn chân phải. Chân trái duỗi thẳng.</li>
-        <img src="h2.png">
-      </ul>
-    </div>
+    <div class="technical-container">
+      <h2 class="main-title">Bài 1: Kĩ thuật di chuyển đơn bước</h2>
 
-    <div class="move-card">
-      <h4>2. Di chuyển SANG NGANG (Phải & Trái)</h4>
-      <ul>
-        <li><strong>Sang phải:</strong> Chân phải bước sang ngang một bước, xoay người sang phải. Gối phải khuỵu, trọng tâm dồn chân phải.</li>
-        <li><strong>Sang trái:</strong> Chân phải bước sang trái một bước theo đường vòng cung qua phía trước chân trái, xoay người sang trái. Gối phải khuỵu.</li>
-        <img src="h3.png">
-      </ul>
-    </div>
+      <div class="step-box ttcb">
+        <strong>TTCB:</strong> Hai chân đứng rộng bằng vai, gối khuỵu, tay phải cầm vợt ở phía trước.
+      </div>
 
-    <div class="move-card">
-      <h4>3. Di chuyển LÙI (Phải & Trái)</h4>
-      <ul>
-        <li><strong>Lùi phải:</strong> Chân phải bước lùi về sau một bước. Gối phải khuỵu, trọng tâm dồn vào chân phải.</li>
-        <li><strong>Lùi trái:</strong> Chân trái bước lùi về sau một bước. Gối trái khuỵu, trọng tâm dồn vào chân trái.</li>
-        <img src="h4.png">
-      </ul>
-    </div>
-    <h2 class="main-title">Bài 1: Kĩ thuật di chuyển đơn bước</h2>
+      <div class="theory-item">
+        <h4>Kĩ thuật di chuyển Tiến (Phải & Trái)</h4>
+        <p><strong>- Tiến phải:</strong> Từ TTCB, chân phải bước ra trước chếch sang phải một bước thành tư thế đứng chân trước chân sau. Chân phải gối khuỵu, trọng lượng cơ thể dồn nhiều lên chân phải; chân trái duỗi thẳng, chạm sân bằng nửa trước bàn chân (H.a).</p>
+        <p><strong>- Tiến trái:</strong> Từ TTCB, chân phải bước ra trước chếch sang trái một bước thành tư thế đứng chân trước chân sau. Chân phải gối khuỵu, trọng lượng cơ thể dồn nhiều lên chân phải; chân trái duỗi thẳng, chạm sân bằng nửa trước bàn chân (H.b).</p>
+        <img src="h2.png" alt="Kĩ thuật di chuyển đơn bước tiến phải và tiến trái" class="theory-img" />
+      </div>
+
+      <div class="theory-item">
+        <h4>Kĩ thuật di chuyển Sang ngang (Phải & Trái)</h4>
+        <p><strong>- Sang phải:</strong> Từ TTCB, chân phải bước sang ngang một bước và xoay người sang phải thành tư thế đứng chân trước chân sau. Chân phải gối khuỵu, trọng lượng cơ thể dồn nhiều lên chân phải; chân trái duỗi thẳng, chạm sân bằng nửa trước bàn chân (H.a).</p>
+        <p><strong>- Sang trái:</strong> Từ TTCB, chân phải bước sang trái một bước theo đường vòng cung qua phía trước chân trái, đồng thời xoay người sang trái thành tư thế đứng chân trước chân sau. Chân phải gối khuỵu, trọng lượng cơ thể dồn nhiều lên chân phải; chân trái duỗi thẳng, chạm sân bằng nửa trước bàn chân (H.b).</p>
+        <img src="h3.png" alt="Kĩ thuật di chuyển đơn bước sang phải và sang trái" class="theory-img" />
+      </div>
+
+      <div class="theory-item">
+        <h4>Kĩ thuật di chuyển Lùi (Phải & Trái)</h4>
+        <p><strong>- Lùi phải:</strong> Từ TTCB, chân phải bước lùi về sau một bước thành tư thế đứng chân trước chân sau. Chân phải gối khuỵu, trọng lượng cơ thể dồn nhiều lên chân phải; chân trái duỗi thẳng, chạm sân bằng nửa trước bàn chân (H.a).</p>
+        <p><strong>- Lùi trái:</strong> Từ TTCB, chân trái bước lùi về sau một bước thành tư thế đứng chân trước chân sau. Chân trái gối khuỵu, trọng lượng cơ thể dồn nhiều lên chân trái; chân phải duỗi thẳng, chạm sân bằng nửa trước bàn chân (H.b).</p>
+        <img src="h4.png" alt="Kĩ thuật di chuyển đơn bước lùi phải và lùi trái" class="theory-img" />
+      </div>
+      
+      <p><strong>Kết thúc:</strong> Về TTCB.</p>
 
       <div class="section-header">A. Trò chơi vận động</div>
       <div class="activity-card">
-        <h3 class="game-title">Trò chơi: Di chuyển ngang đổi cầu</h3>
+        <h3 style="color: #c62828; margin-top: 0;">Trò chơi: Di chuyển ngang đổi cầu</h3>
         <p><strong>Mục đích:</strong> Rèn luyện phản xạ và phát triển sức nhanh.</p>
         <p><strong>Chuẩn bị:</strong> Các đội đứng thành hàng dọc sau vạch xuất phát.</p>
         <div class="sub-topic">
@@ -89,202 +99,19 @@
         </div>
       </div>
 
-      <div class="step-box ttcb">
-        <h3>🏃‍♂️ Tư thế chuẩn bị (TTCB)</h3>
-        <p>Hai chân đứng rộng bằng vai, gối khuỵu, trọng lượng dồn đều, tay phải cầm vợt ở phía trước, mắt quan sát cầu.</p>
-      </div>
-
-      <div class="execution-grid">
-        <div class="move-card">
-          <strong>1. Di chuyển TIẾN:</strong> 
-          <p>Bước chân phải ra trước chếch phải/trái. Gối khuỵu, trọng tâm dồn chân trước.</p>
-        </div>
-        <div class="move-card">
-          <strong>2. Di chuyển NGANG:</strong>
-          <p>Bước chân phải sang ngang hoặc vòng qua trước chân trái. Xoay người, trọng tâm dồn chân phải.</p>
-        </div>
-      </div>
-
       <div class="section-header">B. Bài tập bổ trợ</div>
       <div class="activity-card">
-        <div class="sub-topic">
-          <strong>1. Bài tập bước đơn không cầu:</strong>
-          <ul class="check-list">
-            <li>Bước tiến 1 bước → Trở về</li>
-            <li>Bước lùi 1 bước → Trở về</li>
-            <li>Bước ngang trái/phải (8–10 lần mỗi hướng)</li>
-          </ul>
-        </div>
-
-        <div class="sub-topic">
-          <strong>2. Bài tập phản xạ tín hiệu:</strong>
-          <p>Di chuyển nhanh theo khẩu lệnh của GV: <em>Tiến – Lùi – Trái – Phải</em>.</p>
-        </div>
-
-        <div class="sub-topic">
-          <strong>3. Kết hợp tay – chân:</strong>
-          <p>Thực hiện đơn bước kết hợp vung tay mô phỏng động tác đánh cầu thực tế.</p>
-        </div>
+        <div class="sub-topic"><strong>1. Bài tập bước đơn không cầu:</strong> Bước tiến/lùi/ngang (8–10 lần mỗi hướng) rồi trở về vị trí cũ.</div>
+        <div class="sub-topic"><strong>2. Bài tập phản xạ tín hiệu:</strong> Di chuyển nhanh theo khẩu lệnh của GV (Tiến – Lùi – Trái – Phải).</div>
+        <div class="sub-topic"><strong>3. Kết hợp tay – chân:</strong> Thực hiện đơn bước kết hợp vung tay mô phỏng động tác đánh cầu.</div>
       </div>
 
       <div class="warning-box">
-        <strong>⚠️ Lỗi sai:</strong> Bước di chuyển quá ngắn.<br>
-        <strong>🎯 Cách sửa:</strong> Sử dụng vạch kẻ hoặc nấm chiến thuật để tập bước đúng độ dài.
+        <strong>* Chú ý:</strong><br />
+        - Lỗi sai thường gặp: Bước di chuyển ngắn.<br />
+        - Cách sửa: Đặt vị trí đánh dấu sẵn để di chuyển.
       </div>
     </div>
-  </div>
-
-  <div class="step-box finish">
-    <p><strong>Kết thúc:</strong> Nhanh chóng thu chân về Tư thế chuẩn bị ban đầu.</p>
-  </div>
-
-  <div class="warning-box">
-    <h3 style="color: #d35400; margin-top: 0;">⚠️ Lưu ý quan trọng</h3>
-    <div class="flex-warning">
-      <div class="error">
-        <strong>Lỗi sai thường gặp:</strong>
-        <p>Bước di chuyển quá ngắn, không đủ tầm với cầu.</p>
-      </div>
-      <div class="fix">
-        <strong>Cách sửa:</strong>
-        <p>Đặt vị trí đánh dấu sẵn (vạch kẻ hoặc nấm chiến thuật) trên sân để tập bước đúng độ dài.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<style>
-  .main { width: 970px; margin: 0 auto; background: #fff; }
-  
-  /* Sử dụng Flexbox để chia cột */
-  .content { 
-    display: flex; 
-    gap: 20px; 
-    padding: 20px 0;
-    align-items: flex-start;
-  }
-
-  /* Nội dung chính bên trái */
-  .technical-container {
-    flex: 1; /* Tự động chiếm phần lớn không gian */
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    line-height: 1.6;
-    color: #2c3e50;
-    background: #fff;
-    padding-right: 10px;
-  }
-
-  /* Sidebar cố định bên phải */
-  .sidebar {
-    flex: 0 0 280px; /* Cố định độ rộng 280px không cho nhảy dòng */
-  }
-
-  /* STYLE NỘI DUNG BÀI GIẢNG */
-  .main-title {
-    text-align: center; color: #1a5276;
-    border-bottom: 3px solid #3498db; padding-bottom: 10px;
-    text-transform: uppercase; margin-top: 0;
-  }
-  
-  .section-header {
-    background: #2980b9; color: white;
-    padding: 10px 15px; border-radius: 5px;
-    margin: 25px 0 15px 0; font-size: 1.2em;
-  }
-
-  .activity-card {
-    border: 1px solid #e0e0e0; border-radius: 8px;
-    padding: 15px; margin-bottom: 15px;
-    background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  }
-
-  .game-title { color: #c62828; border-bottom: 2px solid #ffcdd2; padding-bottom: 5px; margin-top: 0; }
-  
-  .sub-topic {
-    background-color: #f1f8e9; padding: 12px;
-    border-left: 4px solid #689f38; margin: 10px 0;
-  }
-
-  .step-box { padding: 15px; margin: 15px 0; border-radius: 8px; }
-  .ttcb { background: #e8f6f3; border-left: 5px solid #1abc9c; }
-  
-  .execution-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;
-  }
-  
-  .move-card {
-    background: #fdfefe; border: 1px solid #d6dbdf;
-    border-radius: 8px; padding: 12px;
-  }
-
-  .warning-box {
-    background: #fef5e7; border: 2px dashed #f39c12;
-    padding: 15px; margin-top: 20px; border-radius: 10px;
-  }
-
-  ul.check-list { list-style-type: none; padding-left: 0; }
-  ul.check-list li:before { content: "✔ "; color: #27ae60; font-weight: bold; }
-  
-  strong { color: #c0392b; }
-  .clr { clear: both; }
-  
-  .technical-container {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    max-width: 850px;
-    margin: 20px auto;
-    color: #2c3e50;
-    padding: 20px;
-    background: #fff;
-  }
-  .main-title {
-    text-align: center;
-    color: #1a5276;
-    border-bottom: 3px solid #3498db;
-    padding-bottom: 10px;
-    text-transform: uppercase;
-  }
-  .step-box {
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 8px;
-  }
-  .ttcb { background: #e8f6f3; border-left: 5px solid #1abc9c; }
-  .finish { background: #f4f6f7; border-left: 5px solid #7f8c8d; text-align: center; }
-  
-  .execution-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-  }
-  .move-card {
-    background: #fff;
-    border: 1px solid #d6dbdf;
-    border-radius: 10px;
-    padding: 15px;
-    transition: transform 0.2s;
-  }
-  .move-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-  .move-card h4 {
-    margin-top: 0;
-    color: #2980b9;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-  }
-  .warning-box {
-    background: #fef5e7;
-    border: 2px dashed #f39c12;
-    padding: 20px;
-    margin-top: 30px;
-    border-radius: 10px;
-  }
-  .flex-warning { display: flex; gap: 20px; flex-wrap: wrap; }
-  .error, .fix { flex: 1; min-width: 200px; }
-  ul { padding-left: 20px; }
-  ul li { margin-bottom: 10px; }
-  strong { color: #c0392b; }
-</style>
 
     <div class="sidebar">
       <div class="gadget">
@@ -327,18 +154,18 @@
     </div>
     <div class="clr"></div>
   </div>
-  <div class="clr"></div>
+  
   <div class="fbg">
     <div class="col c1">
       <h2><span>Image Gallery</span></h2>
       <a href="#"><img src="pic_1.jpg" width="58" height="58" alt="" /></a> <a href="#"><img src="pic_2.jpg" width="58" height="58" alt="" /></a> <a href="#"><img src="pic_3.jpg" width="58" height="58" alt="" /></a> <a href="#"><img src="pic_4.jpg" width="58" height="58" alt="" /></a> <a href="#"><img src="pic_5.jpg" width="58" height="58" alt="" /></a> <a href="#"><img src="pic_6.jpg" width="58" height="58" alt="" /></a> </div>
     <div class="col c2">
       <h2><span>Hành trình làm chủ sân cầu và nâng tầm thể chất</span></h2>
-      <p>Chào mừng các bạn đến với không gian tự học cầu lông trực tuyến dành riêng cho học sinh lớp 10. Đây không chỉ là nơi cung cấp kiến thức về kỹ thuật, mà còn là lộ trình giúp bạn rèn luyện sự bền bỉ, phản xạ nhanh nhẹn và tư duy chiến thuật sắc bén. Tại đây, mọi bài giảng từ cơ bản như cách cầm vợt, di chuyển bước chân đến những kỹ thuật nâng cao đều được trình bày trực quan, giúp bạn dễ dàng thực hành và hoàn thiện kỹ năng mỗi ngày. Hãy cùng chúng tôi khơi dậy đam mê thể thao và xây dựng một lối sống năng động, khỏe mạnh ngay hôm nay.</p>
+      <p>Chào mừng các bạn đến với không gian tự học cầu lông trực tuyến dành riêng cho học sinh lớp 10...</p>
     </div>
     <div class="col c3">
       <h2><span>About</span></h2>
-      <p>Chào mừng bạn đến với hệ thống tài nguyên số chuyên biệt cho môn Cầu lông thuộc chương trình Giáo dục phổ thông lớp 10. Tại đây, chúng tôi cung cấp hệ thống bài giảng lý thuyết, video hướng dẫn kỹ thuật chuẩn xác và các phương pháp tập luyện bài bản. Mục tiêu của cổng học liệu là hỗ trợ học sinh nắm vững kỹ năng từ cơ bản đến nâng cao, đồng thời giúp giáo viên tối ưu hóa quy trình giảng dạy thông qua các tư liệu trực quan sinh động. <a href="#">Learn more...</a></p>
+      <p>Chào mừng bạn đến với hệ thống tài nguyên số chuyên biệt cho môn Cầu lông...</p>
     </div>
     <div class="clr"></div>
   </div>
