@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Phân tích lớp học với GPT trực tiếp</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+body { font-family: Arial; margin: 40px; background: #f9f9f9; }
+h1 { color: #333; }
+select, button { padding: 8px 12px; margin: 5px 0; }
+#report { margin-top: 20px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+canvas { margin-top: 20px; }
+</style>
+</head>
+<body>
+
+<h1>Phân tích lớp học với GPT trực tiếp</h1>
+
+<label for="classSelect">Chọn lớp học:</label>
+<select id="classSelect">
+  <option value="">-- Chọn lớp --</option>
+</select>
+<button id="analyzeBtn">Phân tích AI</button>
+
+<div id="report"></div>
+<canvas id="scoreChart" width="400" height="200"></canvas>
+
+<script>
+  // --- Supabase ---
+  const supabaseUrl = 'https://zpvhxuwwgrtqbgziylbl.supabase.co';
+  const supabaseKey = 'sb_publishable_u0kVgF9XCLTk5tD9M_xj9w_9lKguAgf';
+  const sb = supabase.createClient(supabaseUrl, supabaseKey);
+
+  const classSelect = document.getElementById('classSelect');
+  const analyzeBtn = document.getElementById('analyzeBtn');
+  const reportDiv = document.getElementById('report');
+  const scoreChartEl = document.getElementById('scoreChart');
+
+  // Load danh sách lớp học
+  async function loadClasses() {
+  try {
+    const { data, error } = await sb
+      .from('classes')
+      .select('class_id,name')
+      .order('name');
+
+    if(error) {
+      console.error('Lỗi Supabase khi lấy lớp:', error);
+      reportDiv.innerHTML = 'Lỗi khi load danh sách lớp!';
+      return;
+    }
+
+    if(!data || data.length === 0) {
+      console.warn('Không có lớp nào trong database hoặc không có quyền truy cập.');
+      reportDiv.innerHTML = 'Chưa có lớp học hoặc không có quyền truy cập.';
+      return;
+    }
+
+    data.forEach(cls => {
+      const option = document.createElement('option');
+      option.value = cls.class_id;
+      option.textContent = cls.name;
+      classSelect.appendChild(option);
+    });
+
+    console.log('Danh sách lớp load thành công:', data);
+  } catch (err) {
+    console.error('Lỗi khi loadClasses:', err);
+    reportDiv.innerHTML = 'Lỗi khi load danh sách lớp!';
+  }
+}
+
+loadClasses();
+
+  // --- GPT API frontend ---
+  async function analyzeSummariesWithGPT(summaryText) {
+    const OPENAI_API_KEY = ''; // ⚠️ Chỉ dùng thử nghiệm, không để production
+
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type':'application/json',
+        'Authorization': `Bearer ${OPENAI_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: 'gpt-4o-mini',
+        messages: [
+          { role: 'system', content: 'Bạn là chuyên gia giáo dục. Phân tích phản hồi học sinh, tóm tắt các điểm cần cải thiện và đưa ra khuyến nghị cải thiện bài học.' },
+          { role: 'user', content: `Phản hồi của học sinh:\n${summaryText}` }
+        ],
+        temperature: 0.7
+      })
+    });
+
+    const data = await response.json();
+    return data.choices[0].message.content || 'Chưa có khuyến nghị';
+  }
+
+  // --- Phân tích lớp ---
+  analyzeBtn.addEventListener('click', async () => {
+    const classId = classSelect.value;
+    if(!classId) { alert('Vui lòng chọn lớp!'); return; }
+
+    reportDiv.innerHTML = 'Đang phân tích...';
+
+    // Lấy sinh viên
+    const { data: students, error: studentErr } = await sb
+      .from('students')
+      .select('student_id,name')
+      .eq('class_id', classId);
+
+    if(studentErr) { console.error(studentErr); reportDiv.innerHTML = 'Lỗi lấy sinh viên'; return; }
+    const studentIds = students.map(s => s.student_id);
+
+    // Lấy submissions
+    const { data: subs, error: subErr } = await sb
+      .from('submissions')
+      .select('submission_id, student_id, lesson_id, score, summary, submitted_at')
+      .in('student_id', studentIds);
+
+    if(subErr) { console.error(subErr); reportDiv.innerHTML = 'Lỗi lấy submissions'; return; }
+
+    // Thống kê
+    const submittedStudents = new Set(subs.map(s => s.student_id));
+    const notSubmittedStudents = students.filter(s => !submittedStudents.has(s.student_id));
+    const scores = subs.map(s => s.score).filter(s => s !== null);
+    const avgScore = scores.length ? (scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(2) : 0;
+    const minScore = scores.length ? Math.min(...scores) : 0;
+    const maxScore = scores.length ? Math.max(...scores) : 0;
+
+    // Biểu đồ
+    // Biểu đồ
+const scoreCounts = {};
+scores.forEach(s => { scoreCounts[s] = (scoreCounts[s]||0)+1; });
+const chartLabels = Object.keys(scoreCounts).sort((a,b)=>a-b);
+const chartData = chartLabels.map(l => scoreCounts[l]);
+
+// Destroy chart cũ nếu tồn tại
+if (window.scoreChart && typeof window.scoreChart.destroy === 'function') {
+    window.scoreChart.destroy();
+}
+
+// Tạo chart mới
+window.scoreChart = new Chart(scoreChartEl, {
+  type: 'bar',
+  data: {
+    labels: chartLabels,
+    datasets: [{
+      label: 'Số sinh viên',
+      data: chartData,
+      backgroundColor: 'rgba(75, 192, 192, 0.6)'
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true } }
+  }
+});
+
+    // Gọi GPT trực tiếp
+    const summariesText = subs.map(s => `Bài học ${s.lesson_id}: ${s.summary || ''}`).join('\n');
+    const recommendation = await analyzeSummariesWithGPT(summariesText);
+
+    // Hiển thị báo cáo
+    reportDiv.innerHTML = `
+      <h2>Báo cáo lớp: ${classSelect.selectedOptions[0].text}</h2>
+      <p>Sinh viên đã nộp bài: <b>${submittedStudents.size}</b></p>
+      <p>Sinh viên chưa nộp bài: <b>${notSubmittedStudents.length}</b></p>
+      <p>Phổ điểm: Min=${minScore}, Max=${maxScore}, Trung bình=${avgScore}</p>
+      <h3>Khuyến nghị AI:</h3>
+      <p>${recommendation}</p>
+    `;
+  });
+</script>
+
+</body>
+</html>
