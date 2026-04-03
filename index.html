@@ -9,6 +9,47 @@
 <script type="text/javascript" src="js/cufon-yui.js"></script>
 <script type="text/javascript" src="js/arial.js"></script>
 <script type="text/javascript" src="js/cuf_run.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script type="text/javascript">
+  // 2. Khai báo thông số kết nối
+  const SUPABASE_URL = "https://kisogvsqpimhlqidkekf.supabase.co";
+  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtpc29ndnNxcGltaGxxaWRrZWtmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ5NTAzMTUsImV4cCI6MjA5MDUyNjMxNX0.TbNVxnDiyUY-NDpTxycGbSuSII9p_JV5VGWklTzqU84"; // Key anon của thầy
+  const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  async function checkLogin() {
+    const emailHS = localStorage.getItem("user_email");
+    const role = localStorage.getItem("user_role");
+
+    // Bước A: Kiểm tra xem đã nộp "thẻ" chưa
+    if (!emailHS) {
+      window.location.href = "https://thaiphucthanh.github.io/conglogin/";
+      return;
+    }
+
+    // Bước B: Cầm "thẻ" này hỏi trực tiếp Supabase (Đây chính là lệnh kết nối)
+    const { data, error } = await sb
+      .from(role === 'teacher' ? 'teachers' : 'students')
+      .select('name')
+      .eq('email', emailHS)
+      .maybeSingle();
+
+    if (error || !data) {
+      // Nếu Supabase bảo không thấy người này -> Xóa thẻ giả và đẩy ra ngoài
+      localStorage.clear();
+      window.location.href = "https://thaiphucthanh.github.io/conglogin/";
+    } else {
+      console.log("Xác thực thành công cho: " + data.name);
+      // Hiển thị tên lên giao diện nếu muốn
+      $(document).ready(function() {
+          $(".menu_nav ul li.active a").html("Chào, " + data.name);
+      });
+    }
+  }
+
+  // Chạy lệnh kiểm tra ngay khi mở trang
+  checkLogin();
+</script>
 </head>
 <body>
 <div class="main">
