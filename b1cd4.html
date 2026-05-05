@@ -154,77 +154,24 @@ Chủ đề 4. Kỹ thuật giao cầu
   </div>
 </div>
 <style>
-    /* Cấu trúc chính: Chia Sidebar (trái) và Mainbar (phải) */
-    .content { 
-        display: flex; 
-        flex-direction: row; 
-        width: 970px; /* Khớp với chiều rộng ảnh header */
-        margin: 0 auto; 
-    }
-
-    /* Sidebar bên trái */
-    .sidebar { 
-        width: 250px; 
-        float: left; 
-        padding: 20px 15px; 
-        background: #fcfcfc; 
-        border-right: 1px solid #eee;
-    }
-
-    /* Mainbar bên phải */
-    .mainbar { 
-        width: 680px; 
-        float: right; 
-        padding: 20px; 
-    }
-
-    /* Tinh chỉnh nội dung bài học */
-    .technical-container { 
-        font-family: 'Segoe UI', Tahoma, sans-serif; 
-        line-height: 1.6; 
-        font-size: 14.5px; 
-        color: #333; 
-    }
-
-    .main-title { 
-        background: #f39c12; 
-        color: white; 
-        text-align: center; 
-        padding: 12px; 
-        border-radius: 6px; 
-        text-transform: uppercase; 
-        font-size: 18px; 
-        margin-bottom: 20px; 
-    }
-
-    /* Đảm bảo video nằm gọn trong khung */
-    .video-wrapper { 
-        width: 100%; 
-        max-width: 640px; 
-        margin: 0 auto 20px auto; 
-    }
-
-    /* Các card nội dung */
-    .action-card { 
-        background: #f9f9f9; 
-        padding: 10px 10px 10px 45px; 
-        border: 1px solid #eee; 
-        border-radius: 6px; 
-        margin-bottom: 8px; 
-        position: relative; 
-    }
-
-    /* Footer màu xanh (như thầy yêu cầu) */
-    .footer { 
-        background: #2980b9 !important; 
-        color: #fff !important; 
-        padding: 20px; 
-    }
-    .footer a { color: #fff !important; }
-
-    /* Xử lý khoảng cách sidebar */
-    .gadget { margin-bottom: 20px; }
-    .sb_menu li a, .ex_menu a { font-size: 13px !important; }
+    /* Phần Style thầy giữ nguyên như cũ hoặc dùng bản tôi đã tối ưu ở trên */
+    .technical-container { font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.7; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); margin-top: 20px; }
+    .main-title { background: #f39c12; color: white; text-align: center; padding: 15px; border-radius: 8px; text-transform: uppercase; margin-bottom: 25px; }
+    .step-section { margin-bottom: 20px; padding: 15px; border-radius: 8px; }
+    .ttcb-gold { background: #fff9eb; border: 1px solid #f9e79f; }
+    .prep-grid { display: flex; gap: 20px; flex-wrap: wrap; }
+    .prep-item { flex: 1; min-width: 250px; }
+    .action-steps { display: flex; flex-direction: column; gap: 12px; }
+    .action-card { background: #fdfefe; padding: 12px 12px 12px 55px; border: 1px solid #ebedef; border-radius: 8px; position: relative; }
+    .action-num { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); background: #f39c12; color: white; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; }
+    .highlight-border { border: 2px solid #f39c12; }
+    .impact-point { background: #fff4e5; border: 1px solid #f5c691; }
+    .warning-text { color: #e74c3c; font-weight: bold; }
+    .finish-box { background: #f4f6f7; border-left: 5px solid #bdc3c7; }
+    .pedagogy-zone { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+    .alert-box { flex: 1; min-width: 280px; padding: 15px; border-radius: 10px; }
+    .error { background: #fdedec; border: 1px solid #f5b7b1; }
+    .fix { background: #eafaf1; border: 1px solid #abebc6; }
 </style>
 </body>
 </html>
