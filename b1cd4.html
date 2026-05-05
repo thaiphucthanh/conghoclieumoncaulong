@@ -154,22 +154,57 @@ Chủ đề 4. Kỹ thuật giao cầu
   </div>
 </div>
 <style>
-    /* Phần Style thầy giữ nguyên như cũ hoặc dùng bản tôi đã tối ưu ở trên */
-    .technical-container { font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.7; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); margin-top: 20px; }
-    .main-title { background: #f39c12; color: white; text-align: center; padding: 15px; border-radius: 8px; text-transform: uppercase; margin-bottom: 25px; }
-    .step-section { margin-bottom: 20px; padding: 15px; border-radius: 8px; }
+    /* 1. Ép toàn bộ khung main vào kích thước 970px cố định */
+    .main { width: 970px; margin: 0 auto; overflow: hidden; }
+
+    /* 2. Dùng Flexbox để chia cột content: Sidebar (trái) + Mainbar (phải) */
+    .content { 
+        display: flex; 
+        flex-direction: row; 
+        width: 100%; 
+        padding: 20px 0;
+    }
+
+    /* 3. Sidebar bên trái (cố định độ rộng) */
+    .sidebar { 
+        width: 250px; 
+        flex-shrink: 0; 
+        padding-right: 20px;
+    }
+
+    /* 4. Mainbar bên phải (chiếm không gian còn lại) */
+    .mainbar { 
+        width: 680px; 
+        flex-shrink: 0;
+    }
+
+    /* 5. Ép Video và Iframe không được tràn khung */
+    .video-wrapper, .technical-container, .mainbar h1 { 
+        width: 100%; 
+        box-sizing: border-box; 
+    }
+    
+    iframe { max-width: 100%; }
+
+    /* 6. Footer màu xanh như ý thầy */
+    .footer { 
+        background-color: #2980b9 !important; 
+        color: white !important; 
+        padding: 15px 20px; 
+    }
+    .footer a { color: white !important; }
+
+    /* --- CÁC STYLE CŨ THẦY GIỮ LẠI --- */
+    .technical-container { font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.6; background: #ffffff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    .main-title { background: #f39c12; color: white; text-align: center; padding: 10px; border-radius: 6px; text-transform: uppercase; font-size: 16px; margin-bottom: 20px; }
+    .step-section { margin-bottom: 15px; padding: 10px; border-radius: 8px; }
     .ttcb-gold { background: #fff9eb; border: 1px solid #f9e79f; }
-    .prep-grid { display: flex; gap: 20px; flex-wrap: wrap; }
-    .prep-item { flex: 1; min-width: 250px; }
-    .action-steps { display: flex; flex-direction: column; gap: 12px; }
-    .action-card { background: #fdfefe; padding: 12px 12px 12px 55px; border: 1px solid #ebedef; border-radius: 8px; position: relative; }
-    .action-num { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); background: #f39c12; color: white; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; }
-    .highlight-border { border: 2px solid #f39c12; }
-    .impact-point { background: #fff4e5; border: 1px solid #f5c691; }
-    .warning-text { color: #e74c3c; font-weight: bold; }
-    .finish-box { background: #f4f6f7; border-left: 5px solid #bdc3c7; }
-    .pedagogy-zone { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
-    .alert-box { flex: 1; min-width: 280px; padding: 15px; border-radius: 10px; }
+    .prep-grid { display: flex; gap: 15px; flex-wrap: wrap; }
+    .prep-item { flex: 1; min-width: 200px; font-size: 14px; }
+    .action-card { background: #fdfefe; padding: 10px 10px 10px 45px; border: 1px solid #ebedef; border-radius: 6px; position: relative; margin-bottom: 8px; }
+    .action-num { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: #f39c12; color: white; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; font-size: 12px; }
+    .pedagogy-zone { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px; }
+    .alert-box { flex: 1; min-width: 200px; padding: 12px; border-radius: 8px; font-size: 13px; }
     .error { background: #fdedec; border: 1px solid #f5b7b1; }
     .fix { background: #eafaf1; border: 1px solid #abebc6; }
 </style>
